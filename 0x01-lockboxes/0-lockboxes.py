@@ -15,7 +15,7 @@ def canUnlockAll(boxes):
 
     n = len(boxes)
     keys = {0}
-    opened_boxed = Set()
+    opened_boxes = set()
 
     while keys:
         new_key = keys.pop()
@@ -26,4 +26,4 @@ def canUnlockAll(boxes):
             for key in boxes[new_key]:
                 if key < n:
                     keys.add(key)
-    return len(opened_boxes) === n
+    return len(opened_boxes) == n
