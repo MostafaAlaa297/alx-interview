@@ -1,16 +1,15 @@
 #!/usr/bin/python3
+"""
+lockboxes problem
+"""
 
 def canUnlockAll(boxes):
     """
-    Determines if all the boxes can be opened.
-
-    Parameters:
-    boxes (list of lists): List of boxes where each box contains keys to other boxes.
-
-    Returns:
-    bool: True if all boxes can be opened, otherwise False.
+    Determines whether a series of locked boxes can be opened
+    based on keys that can be attained.
+    Solution to the lockboxes problem.
     """
-    if not boxes:
+    if not isinstance(boxes, list) or not boxes:
         return False
 
     n = len(boxes)
@@ -19,11 +18,10 @@ def canUnlockAll(boxes):
 
     while keys:
         new_key = keys.pop()
-
         if new_key not in opened_boxes:
             opened_boxes.add(new_key)
-            
             for key in boxes[new_key]:
                 if key < n:
                     keys.add(key)
+
     return len(opened_boxes) == n
