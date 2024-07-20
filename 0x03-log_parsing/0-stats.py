@@ -29,10 +29,12 @@ def print_statistics():
         if status_counts[status] > 0:
             print(f"{status}: {status_counts[status]}")
 
+
 def signal_handler(sig, frame):
     """Handles the keyboard interrupt signal (CTRL+C)"""
     print_statistics()
     sys.exit(0)
+
 
 signal.signal(signal.SIGINT, signal_handler)
 
@@ -42,7 +44,7 @@ try:
             parts = line.split()
             if len(parts) < 7:
                 continue
-            
+
             status = parts[-2]
             size = parts[-1]
 
@@ -54,7 +56,6 @@ try:
 
             if line_count % 10 == 0:
                 print_statistics()
-
 
         except Exception as e:
             continue
