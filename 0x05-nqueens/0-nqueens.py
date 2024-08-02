@@ -7,12 +7,12 @@ import sys
 
 def validate_args():
     """Validating args"""
-    if len(sys,args) != 2:
+    if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
 
     try:
-        N = int(sys.args)
+        N = int(sys.argv[1])
     except ValueError:
         print("N must be a number")
         sys.exit(1)
@@ -57,7 +57,7 @@ def solve_nqueens(board, col):
     for i in range(len(board)):
         if is_safe(board, i, col):
             board[i][col] = 1
-            res = solve_queens(board, col + 1) or res
+            res = solve_nqueens(board, col + 1) or res
             board[i][col] = 0
     return res
 
@@ -76,5 +76,5 @@ def nqueens():
     board = [[0 for _ in range(N)] for _ in range(N)]
     solve_nqueens(board, 0)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     nqueens()
