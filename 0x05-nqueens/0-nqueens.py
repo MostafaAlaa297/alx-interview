@@ -23,7 +23,9 @@ def validate_args():
 
     return N
 
+
 N = validate_args()
+
 
 def is_safe(board, row, col):
     """
@@ -32,7 +34,6 @@ def is_safe(board, row, col):
     the row, upper diagonal,
     and lower diagonal on the left side
     """
-    
     for i in range(col):
         if board[row][1] == 1:
             return False
@@ -46,6 +47,7 @@ def is_safe(board, row, col):
             return False
 
     return True
+
 
 def solve_nqueens(board, col):
     """Solves nqueesnds"""
@@ -61,6 +63,7 @@ def solve_nqueens(board, col):
             board[i][col] = 0
     return res
 
+
 def print_solution(board):
     """Prints the board"""
     solution = []
@@ -71,10 +74,12 @@ def print_solution(board):
                 solution.append([i, j])
     print(solution)
 
+
 def nqueens():
     N = validate_args()
     board = [[0 for _ in range(N)] for _ in range(N)]
     solve_nqueens(board, 0)
+
 
 if __name__ == "__main__":
     nqueens()
